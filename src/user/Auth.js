@@ -10,6 +10,8 @@ let Auth = ({setUser}) => {
         email: '',
         password: ''
     });
+    let [errorMessage, setErrorMessage] = useState('');
+    let navigate = useNavigate()
 
     let onChange = (e) => {
         let {name, value} = e.target;
@@ -19,8 +21,7 @@ let Auth = ({setUser}) => {
         })
     };
 
-    let [errorMessage, setErrorMessage] = useState('');
-    let navigate = useNavigate()
+
 
     let onRegister = () => {
         navigate('/user/register')
@@ -33,17 +34,14 @@ let Auth = ({setUser}) => {
         let formData = new FormData();
         formData.append('email', inputs.email);
         formData.append('password', inputs.password);
-        console.log(inputs)
 
         try {
-
-
             let response = await axios({
                 url: 'http://localhost:8080/user/auth',
                 method: 'POST',
                 data: formData,
                 withCredentials: true
-            });
+            },[]);
 
             console.log(response)
 
