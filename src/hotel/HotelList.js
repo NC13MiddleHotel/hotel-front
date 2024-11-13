@@ -15,7 +15,8 @@ let HotelList = () => {
     }
 
     let location = useLocation()
-    let userInfo = location.state.userInfo
+    let userInfo = location.state?.userInfo;
+    console.log(userInfo)
 
     let navigate = useNavigate()
 

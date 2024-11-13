@@ -26,8 +26,6 @@ let Auth = ({setUser}) => {
         let formData = new FormData();
         formData.append('email', inputs.email);
         formData.append('password', inputs.password);
-        console.log("서버로 보내는 이메일:", inputs.email);  // 서버에 보내는 이메일
-        console.log("서버로 보내는 비번:", inputs.password);  // 비밀번호 출력
 
         try {
             console.log("요청을 보내는 중입니다.");
