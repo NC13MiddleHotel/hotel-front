@@ -193,23 +193,38 @@ const HotelOne = () => {
                                 }}
                             />
                         </td>
-                        <td valign='middle' align='center'>
-                            <Table>
-                                <tbody>
-                                <tr>
-                                    <th>
-                                        <Button onClick={minusPeople}>-</Button>
-                                    </th>
-                                    <th>
-                                        <input type='text' className='form-control' disabled='true'
-                                               value={'인원수: ' + peopleCount}/>
-                                    </th>
-                                    <th>
-                                        <Button onClick={addPeople}>+</Button>
-                                    </th>
-                                </tr>
-                                </tbody>
-                            </Table>
+                        <td valign="middle" align="center">
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '20px', // 가로 간격 더 넓게
+                                    width: '100%' // 컨테이너 전체 너비 차지
+                                }}
+                            >
+                                <Button
+                                    onClick={minusPeople}
+                                    style={{height: '40px', padding: '0 15px', fontSize: '16px'}} // 높이 통일
+                                >
+                                    -
+                                </Button>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    disabled
+                                    value={'인원수: ' + peopleCount}
+                                    style={{
+                                        marginTop: '10px'
+                                    }}
+                                />
+                                <Button
+                                    onClick={addPeople}
+                                    style={{height: '40px', padding: '0 15px', fontSize: '16px'}} // 높이 통일
+                                >
+                                    +
+                                </Button>
+                            </div>
                         </td>
                         <td valign='middle' align='center'>
                             <Button type="submit">검색</Button>

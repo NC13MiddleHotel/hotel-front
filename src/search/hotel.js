@@ -104,7 +104,6 @@ const SearchHotel = () => {
                     : [...prev[name], id];
                 const newParams = {...prev, [name]: updatedList};
 
-                console.log(`잘 들어가니..?`, newParams);
 
                 return newParams;
             });
@@ -113,7 +112,6 @@ const SearchHotel = () => {
 
         const handleSearch = async (e) => {
             if (e) e.preventDefault();
-            console.log('잘 받고 있니?:', searchParams);
 
             try {
                 const response = await axios.post('http://localhost:8080/search/hotel', searchParams);
@@ -226,24 +224,40 @@ const SearchHotel = () => {
                                     }}
                                 />
                             </td>
-                            <td valign='middle' align='center'>
-                                <Table>
-                                    <tbody>
-                                    <tr>
-                                        <th>
-                                            <Button onClick={minusPeople} style={button}>-</Button>
-                                        </th>
-                                        <th>
-                                            <input type='text' className='form-control' disabled='true'
-                                                   value={'인원수: ' + searchParams.peopleCount}/>
-                                        </th>
-                                        <th>
-                                            <Button onClick={addPeople} style={button}>+</Button>
-                                        </th>
-                                    </tr>
-                                    </tbody>
-                                </Table>
+                            <td valign="middle" align="center">
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        gap: '10px',
+                                    }}
+                                >
+                                    <Button
+                                        onClick={minusPeople}
+                                        style={button}
+                                    >
+                                        -
+                                    </Button>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        disabled
+                                        value={'인원수: ' + searchParams.peopleCount}
+                                        style={{
+                                            textAlign: 'center',
+                                            marginTop: '10px'
+                                        }}
+                                    />
+                                    <Button
+                                        onClick={addPeople}
+                                        style={button}
+                                    >
+                                        +
+                                    </Button>
+                                </div>
                             </td>
+
                         </tr>
                         </thead>
                     </Table>
